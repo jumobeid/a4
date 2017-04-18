@@ -1,0 +1,36 @@
+.container{
+  text-align:left;
+}
+.table-striped{
+  font-size:.7em;
+}
+
+#sidebars{
+	list-style: none;
+	text-align:center;
+	color:gray;
+	
+}
+#sidebartitle{
+	text-align:left;
+	font-style:bold;
+	text-decoration:underline;
+	color:gray;
+}
+#sidebarcenter{
+	list-style: none;
+	text-align:center;
+    color:gray;	
+
+}
+#sidebarleft{
+	text-align:left;
+	list-style: none;
+	color:gray;
+}
+#sidebarright{
+	text-align:right;
+	list-style: none;
+	color:gray;
+	
+}
