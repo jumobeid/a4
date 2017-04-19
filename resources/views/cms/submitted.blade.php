@@ -7,7 +7,7 @@
 
 
 @push('head')
-    <link href="/css/books/show.css" type='text/css' rel='stylesheet'>
+    <link href="" type='text/css' rel='stylesheet'>
 @endpush
 
 
@@ -16,7 +16,7 @@
 
 	    <div class="container">
 
-		{!!Form::open(['url'=>'/orders/submitted','method'=>'POST','class'=>'form-horizantal'])!!}
+		{!!Form::open(['url'=>'/submitted','method'=>'POST','class'=>'form-horizantal'])!!}
 			{{csrf_field()}}
 			<div class="form-group">
 			{!!Form::label('numberOfPeople','Number Of People:')!!}
@@ -44,12 +44,12 @@
 			</div>
 
 			<div class="form-group">
-			{!!Form::submit('Calculate Total',['class'=>'btn btn-primary form-control'])!!}
+			{!!Form::submit('Calculate Total',['class'=>'btn btn-success form-control'])!!}
 			</div>
 
 		{!!Form::close()!!}
 
-		<div class="alert alert-info">
+		<div class="alert alert-success">
                   <h3>{{ $valueForEach }}</h3>
          </div>
 
@@ -71,5 +71,5 @@
 
 
 @push('body')
-    <script src="/js/books/show.js"></script>
+    <script src=""></script>
 @endpush
