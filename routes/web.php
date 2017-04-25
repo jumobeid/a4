@@ -14,14 +14,14 @@
 Route::get('/', function () {
    return view('cms.index');
 });
-
-Route::get('/submitted', 'cmsController@show');
-Route::post('/submitted', 'cmsController@submitted');
 Route::resource('tasks','TaskController');
+
+//Route::get('/submitted', 'cmsController@show');
+//Route::post('/submitted', 'cmsController@submitted');
 
 
 if(config('app.env') == 'local') {
-    #Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+    Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 }
 
 /**

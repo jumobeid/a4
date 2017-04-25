@@ -13,7 +13,7 @@
 				alt='BillSplitter Logo'
 				title="home"></a>
 			</div>
-		
+
 			<div class="col-md-5">
 				<div class="page-header">
 					<h1>Cattle Management System</h1>
@@ -22,7 +22,7 @@
 						<p>Welcome Administrator</p>
 				</div>
 			</div>
-			
+
 			<div class="col-md-4">
 			<div class="panel panel-default">
 				<div class="panel-body">
@@ -51,7 +51,7 @@
 				   <tr>
 					<th>Location:</th>
 						<td>Al Ain</td>
-				   </tr>		
+				   </tr>
 				</tbody>
 			  </table>
 			</div>
@@ -61,23 +61,24 @@
     </header>
 
 	@include('partials._nav')
-		
+
     <section>
-        @yield('content')
-		
+	@include('partials._messages')
+    @yield('content')
+
     </section>
 
     <footer>
 	 <div class="class="container">
 	  <div class="row" id="sidebarcenter">
 	   <div class="well">&copy; {{ date('Y') }}</div>
-      </div> 
+      </div>
 	 </div>
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-    @stack('body')
+    <!--@stack('body')-->
 
 </body>
 </html>
