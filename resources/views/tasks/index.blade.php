@@ -27,14 +27,13 @@
 		</thead>
 		<tbody>
 			@foreach ($completedTasks as $task)
-			  <tr>
-			    <td>{{$task->title}}</td>
-				<td>{{substr($task->notes,0,50)}}{{strlen($task->notes)>50?"...":""}}</td>
-				<td>{{$task->start_date}}</td>
-				<td>{{$task->due_date}}</td>
-        <td><a href="{{route('tasks.show',$task->id)}}" class="btn btn-default btn-sm">View</a>
-            <a href="{{route('tasks.edit',$task->id)}}" class="btn btn-default btn-sm">Edit</a></td>
-			  </tr>
+      <tr>
+       <td><s>{{$task->title}}</s></td>
+       <td><s>{{substr($task->notes,0,50)}}{{strlen($task->notes)>50?"...":""}}</s></td>
+       <td><s>{{$task->start_date}}</s></td>
+       <td><s>{{$task->due_date}}</s></td>
+       <td><s><a href="{{route('tasks.show',$task->id)}}" class="btn btn-default btn-sm">View</a><a href="{{route('tasks.edit',$task->id)}}" class="btn btn-default btn-sm">Edit</a></td>
+      </tr>
 			@endforeach
 		</tbody>
 		</table>
