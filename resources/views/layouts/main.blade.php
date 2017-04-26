@@ -34,7 +34,7 @@
 				   </tr>
 				   <tr>
 					<th>Herd:</th>
-						<td>Snow White</td>
+						<td>My Local Herd</td>
 				   </tr>
 				   <tr>
 					<th>Number of Animals:</th>

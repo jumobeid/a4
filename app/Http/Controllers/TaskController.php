@@ -24,7 +24,7 @@ class TaskController extends Controller
 		//return the view and passon the variable
 		return view('tasks.index')->with([
 		    'completedTasks' => $completedTasks,
-            'notcompletedTasks' => $notcompletedTasks,
+        'notcompletedTasks' => $notcompletedTasks,
 			]);
     }
 

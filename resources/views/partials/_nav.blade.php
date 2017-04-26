@@ -12,7 +12,7 @@
 			  <li><a href="#"><img src="/images/workers.png" title="workers" alt="workers" width="27" height="27" border="0"></a></li>
 			  <li><a href="/tasks/create"><img src="/images/tasks.png" title="add tasks" alt="add tasks" width="27" height="27" border="0"></a></li>
 			  <li><a href="#"><img src="/images/savetoPDF.png" title="save to PDF" alt="save to PDF" width="27" height="27" border="0"></a></li>
-			  <li><a href="#"><img src="/images/edit_task.jpg" title="edit task" alt="edit task" width="27" height="27" border="0"></a></li>
+			  <li><a href="/rand"><img src="/images/edit_random_task.jpg" title="edit random task" alt="edit random task" width="27" height="27" border="0"></a></li>
 
 			</ul>
 

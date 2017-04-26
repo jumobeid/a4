@@ -15,6 +15,8 @@ Route::get('/', function () {
    return view('cms.index');
 });
 Route::resource('tasks','TaskController');
+Route::get('/rand','randomTaskController@show');
+Route::post('/rand','randomTaskController@edit');
 
 //Route::get('/submitted', 'cmsController@show');
 //Route::post('/submitted', 'cmsController@submitted');
