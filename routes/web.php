@@ -17,7 +17,7 @@ Route::get('/', function () {
 Route::resource('tasks','TaskController');
 Route::get('/rand','randomTaskController@show');
 Route::post('/rand','randomTaskController@edit');
-
+Route::get('/help', 'PagesController@index');
 //Route::get('/submitted', 'cmsController@show');
 //Route::post('/submitted', 'cmsController@submitted');
 

@@ -19,7 +19,7 @@
 			<ul class="nav navbar-nav navbar-right">
 			  <li><a href="#"><img src="/images/noteEmail.png" title="note to email" alt="noteto email" width="27" height="27" border="0"></a></li>
 			  <li><a href="#"><img src="/images/noteTextMsg.png" title="note to text" alt="note to text" width="27" height="27" border="0"></a></li>
-			  <li><a href="#"><img src="/images/help.png" title="help" alt="help" width="27" height="27" border="0"></a></li>
+			  <li><a href="/help"><img src="/images/help.png" title="help" alt="help" width="27" height="27" border="0"></a></li>
 			  <li><a href="#"><img src="/images/chat.png" title="chat" alt="chat" width="27" height="27" border="0"></a></li>
 			  <li><a href="#"><img src="/images/FAQ.png" title="FAQ" alt="FAQ" width="27" height="27" border="0"></a></li>
 
