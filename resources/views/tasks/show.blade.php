@@ -51,10 +51,11 @@
 					  {!!Html::linkRoute('tasks.edit','Edit',array($newTask->id),array('class'=>'btn btn-success btn-block'))!!}
 
 					  </div>
-					  <div class="col-md-3 col-md-offset-2">
-					  {!!Html::linkRoute('tasks.destroy','Delete',array($newTask->id),array('class'=>'btn btn-danger btn-block'))!!}
-
-					  </div>
+            <div class="col-md-3 col-md-offset-2">
+           {!!Form::open(['route'=>['tasks.destroy',$newTask->id],'method'=>'DELETE'])!!}
+           {!!Form::submit('Delete',['class'=>'btn btn-danger btn-block'])!!}
+           {!!Form::close()!!}
+           </div>
 			    </div>
 		     </div>
 		  </div>

@@ -23,6 +23,7 @@
 			<th>Notes</th>
 			<th>Start date</th>
 			<th>Due date</th>
+      <th></th>
 		</thead>
 		<tbody>
 			@foreach ($completedTasks as $task)

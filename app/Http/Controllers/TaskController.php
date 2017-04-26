@@ -120,6 +120,11 @@ class TaskController extends Controller
     {
         //find the post in the db and save as variable
 		$task = Task::find($id);
+
+    if(is_null($task)) {
+           Session::flash('fail', 'Task not found.');
+           return redirect('/tasks');
+       }
 		//return the view and pass the variable previously created
 		return view('tasks.edit')->with('task',$task);
     }
@@ -189,6 +194,15 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
+      //find the task
+      $task = Task::find($id);
 
+     	//delete the post
+     	$task->delete();
+
+     	Session::flash('success','The post was sucseesfully deleted');
+
+     	//redirect to index page
+     	return redirect()->route('tasks.index');
     }
 }
