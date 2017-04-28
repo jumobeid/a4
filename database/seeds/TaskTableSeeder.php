@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Task;
 
-class TaskTableSeeder extends Seeder
+class TasksTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -23,8 +23,8 @@ class TaskTableSeeder extends Seeder
 			 Best scheduled as one of the first tasks of the day.',
 			'priority' => 'Hi',
 			'cow_id' => 'All',
-			'start_date' =>'2017-04-29',
-			'due_date' => '2017-04-30',
+			'start_date' =>'2017-05-12',
+			'due_date' => '2017-05-13',
 			'complete_percent' => '100',
 			'status'=>'Completed',
 			'done_overdue'=>'No',
@@ -39,8 +39,8 @@ class TaskTableSeeder extends Seeder
 			 may risk milking capacity or animal welfare.Several times as day – when passing through the dairy for other reason.',
 			'priority' => 'Hi',
 			'cow_id' => 'All',
-			'start_date' =>'2017-04-29',
-			'due_date' => '2017-04-30',
+			'start_date' =>'2017-05-14',
+			'due_date' => '2017-05-15',
 			'complete_percent' => '0',
 			'status'=>'Not completed',
 			'done_overdue'=>'No',
@@ -53,8 +53,8 @@ class TaskTableSeeder extends Seeder
 			'notes' => ' 3 times a day if you have 3-way grazing.',
 			'priority' => 'Hi',
 			'cow_id' => 'All',
-			'start_date' =>'2017-04-29',
-			'due_date' => '2017-04-30',
+			'start_date' =>'2017-05-17',
+			'due_date' => '2017-05-18',
 			'complete_percent' => '20',
 			'status'=>'Not completed',
 			'done_overdue'=>'No',
@@ -68,8 +68,8 @@ class TaskTableSeeder extends Seeder
 			flagged for attention; events occurring overnight.Start of the day, or remotely before arriving on site.',
 			'priority' => 'Hi',
 			'cow_id' => 'All',
-			'start_date' =>'2017-04-22',
-			'due_date' => '2017-04-23',
+			'start_date' =>'2017-05-18',
+			'due_date' => '2017-05-19',
 			'complete_percent' => '0',
 			'status'=>'Not completed',
 			'done_overdue'=>'Yes',
@@ -85,8 +85,8 @@ class TaskTableSeeder extends Seeder
 			entered the milking herd recently and heifers in training',
 			'priority' => 'Hi',
 			'cow_id' => 'SnowWhite',
-			'start_date' =>'2017-04-26',
-			'due_date' => '2017-04-27',
+			'start_date' =>'2017-05-20',
+			'due_date' => '2017-05-21',
 			'complete_percent' => '50',
 			'status'=>'Not completed',
 			'done_overdue'=>'No',
@@ -99,8 +99,8 @@ class TaskTableSeeder extends Seeder
 			'notes' => 'Twice a day.',
 			'priority' => 'Hi',
 			'cow_id' => 'Blondi',
-			'start_date' =>'2017-05-04',
-			'due_date' => '2017-05-05',
+			'start_date' =>'2017-05-21',
+			'due_date' => '2017-05-22',
 			'complete_percent' => '50',
 			'status'=>'Not completed',
 			'done_overdue'=>'No',
