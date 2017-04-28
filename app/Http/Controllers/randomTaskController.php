@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Task;
+use Session;
 
 class randomTaskController extends Controller
 {
@@ -13,24 +14,24 @@ class randomTaskController extends Controller
 
 	 //create a variable that holds all the not completed tasks
 	 $notcompletedTasks= Task::where('status', '=', 'Not completed')->get();
-	 if(is_null($notcompletedTasks)) {
-            Session::flash('fail', 'All tasks are completed');
-			return redirect('/tasks');
-     }else{
-		   $rand = $notcompletedTasks->random();
+	 if(!$notcompletedTasks->isEmpty()) {
+           $rand = $notcompletedTasks->random(1);
            return view('rand.show')->with('rand',$rand);
+     }else{
+		   Session::flash('fail', 'All tasks are completed');
+		   return redirect('/tasks');
 	 }
 	}
-
 	public function edit()
 	{
 	 //create a variable that holds all the not completed tasks
 	 $notcompletedTasks= Task::where('status', '=', 'Not completed')->get();
-	 if(is_null($notcompletedTasks)) {
-            Session::flash('fail', 'All tasks are completed');
-			return redirect('/tasks');
-     }else{
-		   $rand = $notcompletedTasks->random();
+	 if(!$notcompletedTasks->isEmpty()) {
+           $rand = $notcompletedTasks->random(1);
            return view('rand.show')->with('rand',$rand);
+     }else{
+		   Session::flash('fail', 'All tasks are completed');
+		   return redirect('/tasks');
 	 }
+	}
 }
