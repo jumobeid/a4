@@ -159,31 +159,38 @@ class TaskController extends Controller
 		  $newTask->complete_percent =$request->get('complete_percent');
 		  $newTask->notes =$request->get('notes');
 		  $today = date("Y-m-d");
-		  if($newTask->complete_percent=='100' && $today<$newTask->due_date)
+		  if($newTask->complete_percent=='100')
 		  {
+			if($today<$newTask->due_date)
+		    {
 				$newTask->status='Completed';
 				$newTask->done_overdue='No';
-		  }elseif($newTask->complete_percent=='100' && $today>$newTask->due_date)
-		  {
+
+		    }else{
+
 			    $newTask->status='Completed';
 		        $newTask->done_overdue='Yes';
-		  }elseif($newTask->complete_percent!='100' && $today<$newTask->due_date)
-		  {
+			}
+			$newTask->save();
+		    Session::flash('success', 'The changes were successfully saved!');
+			//redirect
+		    return redirect()->action('randomTaskController@show');
+
+		  }else{
+            if($today<$newTask->due_date)
+		    {
 		        $newTask->status='Not completed';
 		        $newTask->done_overdue='No';
-		  }else{
+		    }else{
 			    $newTask->status='Not completed';
 		        $newTask->done_overdue='Yes';
-		  }
+		    }
+			$newTask->save();
+		    Session::flash('success', 'The changes were successfully saved!');
+			//redirect
+			return redirect()->route('tasks.show',$newTask->id);
+          }
 
-		  $newTask->save();
-
-
-		  Session::flash('success', 'The changes were successfully saved!');
-
-
-		//redirect
-		return redirect()->route('tasks.show',$newTask->id);
     }
 
     /**
