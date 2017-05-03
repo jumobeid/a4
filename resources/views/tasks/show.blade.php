@@ -30,7 +30,7 @@
 			  <dd>{{$newTask->start_date}}</dd>
 			  <dt>due date: </dt>
 			  <dd>{{$newTask->due_date}}</dd>
-			  <dt>over due: </dt>
+			  <dt>overdue: </dt>
 			  <dd>{{$newTask->done_overdue}}</dd>
 			  <dt>completed percent: </dt>
 			  <dd>{{$newTask->complete_percent}}</dd>
