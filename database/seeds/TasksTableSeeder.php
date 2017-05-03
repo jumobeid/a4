@@ -22,7 +22,6 @@ class TasksTableSeeder extends Seeder
              an indication of overnight cow traffic and milking.
 			 Best scheduled as one of the first tasks of the day.',
 			'priority' => 'Hi',
-			'animal_id' => 1,
 			'start_date' =>'2017-05-12',
 			'due_date' => '2017-05-13',
 			'complete_percent' => '100',
@@ -39,7 +38,6 @@ class TasksTableSeeder extends Seeder
 			 and listen for unusual noises or other anomalies that
 			 may risk milking capacity or animal welfare.Several times as day – when passing through the dairy for other reason.',
 			'priority' => 'Hi',
-			'animal_id' => 1,
 			'start_date' =>'2017-05-14',
 			'due_date' => '2017-05-15',
 			'complete_percent' => '0',
@@ -54,7 +52,6 @@ class TasksTableSeeder extends Seeder
 			'title' => 'Fetch cows from stale pasture allocations',
 			'notes' => ' 3 times a day if you have 3-way grazing.',
 			'priority' => 'Hi',
-			'animal_id' => 3,
 			'start_date' =>'2017-05-17',
 			'due_date' => '2017-05-18',
 			'complete_percent' => '20',
@@ -70,7 +67,6 @@ class TasksTableSeeder extends Seeder
 			'notes' => ' Morning review of cows that have been drafted and
 			flagged for attention; events occurring overnight.Start of the day, or remotely before arriving on site.',
 			'priority' => 'Hi',
-			'animal_id' => 2,
 			'start_date' =>'2017-05-18',
 			'due_date' => '2017-05-19',
 			'complete_percent' => '0',
@@ -88,7 +84,6 @@ class TasksTableSeeder extends Seeder
 			waiting times, cow traffic; particular attention to cows that
 			entered the milking herd recently and heifers in training',
 			'priority' => 'Hi',
-			'animal_id' => 1,
 			'start_date' =>'2017-05-20',
 			'due_date' => '2017-05-21',
 			'complete_percent' => '50',
@@ -103,7 +98,6 @@ class TasksTableSeeder extends Seeder
 			'title' => 'Colostrum/treatment cows.',
 			'notes' => 'Twice a day.',
 			'priority' => 'Hi',
-			'animal_id' => 1,
 			'start_date' =>'2017-05-21',
 			'due_date' => '2017-05-22',
 			'complete_percent' => '50',
@@ -117,7 +111,6 @@ class TasksTableSeeder extends Seeder
 			'title' => 'Trim horns of a bull.',
 			'notes' => 'Once a day.',
 			'priority' => 'Hi',
-			'animal_id' => 2,
 			'start_date' =>'2017-05-21',
 			'due_date' => '2017-05-22',
 			'complete_percent' => '50',
