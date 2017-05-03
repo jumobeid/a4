@@ -15,6 +15,6 @@ class DatabaseSeeder extends Seeder
          $this->call(LocationsTableSeeder::class);
          $this->call(AnimalsTableSeeder::class);
          $this->call(TasksTableSeeder::class);
-         $this->call(AnimalTaskTableSeeder::class);
+
     }
 }
