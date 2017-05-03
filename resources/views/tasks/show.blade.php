@@ -23,6 +23,7 @@
 			<dl class="dl-horizontal">
 			  <dt>priority: </dt>
 			  <dd>{{$newTask->priority}}</dd>
+
 			  <dt>status: </dt>
 			  <dd>{{$newTask->status}}</dd>
 			  <dt>start date: </dt>
@@ -33,6 +34,12 @@
 			  <dd>{{$newTask->done_overdue}}</dd>
 			  <dt>completed percent: </dt>
 			  <dd>{{$newTask->complete_percent}}</dd>
+        <dt>location: </dt>
+        <dd>{{$newTask->location->name}}</dd>
+        <dt>animals: </dt>
+        @foreach($newTask->animals as $animal)
+          <dd>  {{$animal->name}}</dd>
+        @endforeach
 			</dl>
 			</div>
 		  </div>

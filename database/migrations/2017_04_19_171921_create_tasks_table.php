@@ -17,7 +17,6 @@ class CreateTasksTable extends Migration
             $table->increments('id');
             $table->string('title');
       			$table->string('priority');
-      			$table->string('cow_id');
       			$table->string('status');
       			$table->date('start_date');
       			$table->date('due_date');
