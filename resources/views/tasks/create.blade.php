@@ -73,7 +73,17 @@
 
 			</div>
 
+      <div class="form-group">
 
+			{!!Form::label('location_id','location:')!!}
+      <select id='location_id' class='form-control' name='location_id'>
+          @foreach($locationsForDropdown as $location_id => $locationName)
+               <option value='{{ $location_id }}' {{ ($newTask->location_id == $location_id) ? 'SELECTED' : '' }}>
+                   {{$locationName}}
+               </option>
+           @endforeach
+      </select>
+			</div>
 
 
 		</div>

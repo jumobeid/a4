@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Task;
 use Session;
+use App\Location;
 
 class TaskController extends Controller
 {
@@ -34,9 +35,13 @@ class TaskController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(){
+      $newTask = new Task;
+      $locationsForDropdown = Location::locationsForDropdown();
 
-
-      return view('tasks.create');
+      return view('tasks.create')->with([
+          'newTask'=> $newTask,
+          'locationsForDropdown' => $locationsForDropdown,
+      ]);
     }
 
     /**
@@ -125,8 +130,14 @@ class TaskController extends Controller
            Session::flash('fail', 'Task not found.');
            return redirect('/tasks');
        }
+
+    $locationsForDropdown = Location::locationsForDropdown();
+
 		//return the view and pass the variable previously created
-		return view('tasks.edit')->with('task',$task);
+		return view('tasks.edit')->with([
+        'task' => $task,
+        'locationsForDropdown' => $locationsForDropdown,
+    ]);
     }
 
     /**
@@ -153,11 +164,12 @@ class TaskController extends Controller
 
 		  $newTask->title = $request->get('title');
 		  $newTask->priority = $request->get('priority');
-          $newTask->cow_id = $request->get('cow_id');
+      $newTask->cow_id = $request->get('cow_id');
 		  $newTask->start_date =$request->get('start_date');
 		  $newTask->due_date =$request->get('due_date');
 		  $newTask->complete_percent =$request->get('complete_percent');
 		  $newTask->notes =$request->get('notes');
+      $newTask->location_id =$request->location_id;
 		  $today = date("Y-m-d");
 		  if($newTask->complete_percent=='100')
 		  {
