@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Task;
-use Session;
 use App\Location;
+use App\Animal;
+use Session;
 
 class TaskController extends Controller
 {
@@ -70,7 +71,9 @@ class TaskController extends Controller
 		  $newTask->start_date =$request->get('start_date');
 		  $newTask->due_date =$request->get('due_date');
 		  $newTask->complete_percent =$request->get('complete_percent');
+      $newTask->location_id =$request->location_id;
 		  $newTask->notes =$request->get('notes');
+
 		  $today = date("Y-m-d");
 		  if($newTask->complete_percent=='100' && $today<$newTask->due_date)
 		  {
@@ -124,7 +127,7 @@ class TaskController extends Controller
     public function edit($id)
     {
         //find the post in the db and save as variable
-		$task = Task::find($id);
+		$task = Task::with('animals')->find($id);
 
     if(is_null($task)) {
            Session::flash('fail', 'Task not found.');
@@ -132,11 +135,22 @@ class TaskController extends Controller
        }
 
     $locationsForDropdown = Location::locationsForDropdown();
+    # Get all the possible tags so we can include them with checkboxes in the view
+    $animalsForCheckboxes = Animal::getAnimalsForCheckboxes();
+
+    # Create a simple array of just the tag names for tags associated with this book;
+    # will be used in the view to decide which tags should be checked off
+    $animalsForThisBook = [];
+    foreach($task->animals as $animal) {
+        $animalsForThisBook[] = $animal->name;
+    }
 
 		//return the view and pass the variable previously created
 		return view('tasks.edit')->with([
         'task' => $task,
         'locationsForDropdown' => $locationsForDropdown,
+        'animalsForCheckboxes' => $animalsForCheckboxes,
+        'animalsForThisBook' => $animalsForThisBook,
     ]);
     }
 
@@ -153,7 +167,6 @@ class TaskController extends Controller
 		  $this->validate($request,[
 		  'title'=> 'required',
 		  'priority'=> 'required',
-		  'cow_id'=> 'required',
 		  'start_date'=> 'required',
 		  'due_date'=> 'required',
 		  'complete_percent'=> 'required',
@@ -164,12 +177,21 @@ class TaskController extends Controller
 
 		  $newTask->title = $request->get('title');
 		  $newTask->priority = $request->get('priority');
-      $newTask->cow_id = $request->get('cow_id');
 		  $newTask->start_date =$request->get('start_date');
 		  $newTask->due_date =$request->get('due_date');
 		  $newTask->complete_percent =$request->get('complete_percent');
 		  $newTask->notes =$request->get('notes');
       $newTask->location_id =$request->location_id;
+      # If there were tags selected...
+      if($request->animals) {
+          $animals = $request->animals;
+      }
+      # If there were no animals selected (i.e. no tags in the request)
+      # default to an empty array of tags
+      else {
+          $animals = [];
+      }
+      $newTask->animals()->sync($animals);
 		  $today = date("Y-m-d");
 		  if($newTask->complete_percent=='100')
 		  {
@@ -181,8 +203,13 @@ class TaskController extends Controller
 		    }else{
 
 			    $newTask->status='Completed';
-		        $newTask->done_overdue='Yes';
-			}
+		      $newTask->done_overdue='Yes';
+			  }
+
+
+
+
+
 			$newTask->save();
 		    Session::flash('success', 'The changes were successfully saved!');
 			//redirect
@@ -197,6 +224,9 @@ class TaskController extends Controller
 			    $newTask->status='Not completed';
 		        $newTask->done_overdue='Yes';
 		    }
+
+
+
 			$newTask->save();
 		    Session::flash('success', 'The changes were successfully saved!');
 			//redirect
@@ -215,6 +245,8 @@ class TaskController extends Controller
     {
       //find the task
       $task = Task::find($id);
+
+      $task->animals()->detach();
 
      	//delete the post
      	$task->delete();

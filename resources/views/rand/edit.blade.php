@@ -17,7 +17,7 @@
   <div class="col-md-10 col-md-offset-1">
 	<h1>{{$rand->title}}</h1>
 	<p>{{$rand->notes}}</p>
-		
+
 		 <div class="col-md-6">
 			<div class="well">
 			<dl class="dl-horizontal">
@@ -33,10 +33,16 @@
 			  <dd>{{$rand->done_overdue}}</dd>
 			  <dt>completed percent: </dt>
 			  <dd>{{$rand->complete_percent}}</dd>
+        <dt>location: </dt>
+        <dd>{{$rand->location->name}}</dd>
+        <dt>animals: </dt>
+        @foreach($rand->animals as $animal)
+          <dd>  {{$rand->name}}</dd>
+        @endforeach
 			</dl>
 			</div>
 		  </div>
-		  
+
 		  <div class="col-md-6">
 			  <div class="well">
 			    <div class="row">
@@ -49,20 +55,20 @@
 				  </dl>
 					  <div class="col-md-3 col-md-offset-2">
 					  {!!Html::linkRoute('tasks.edit','Edit',array($rand->id),array('class'=>'btn btn-success btn-block'))!!}
-						
+
 					  </div>
 					  <div class="col-md-3 col-md-offset-2">
 					  {!!Form::open(['route'=>['tasks.destroy',$rand->id],'method'=>'DELETE'])!!}
 					  {!!Form::submit('Delete',['class'=>'btn btn-danger btn-block'])!!}
-					  {!!Form::close()!!}	 	  
+					  {!!Form::close()!!}
 					  </div>
 			    </div>
 		     </div>
 		  </div>
-		  
-		  
-		
-		
+
+
+
+
   </div>
 </div>
 
