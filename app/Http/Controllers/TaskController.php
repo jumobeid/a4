@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Task;
 use App\Location;
 use App\Animal;
 use Session;
+
 
 class TaskController extends Controller
 {
@@ -38,10 +41,21 @@ class TaskController extends Controller
     public function create(){
       $newTask = new Task;
       $locationsForDropdown = Location::locationsForDropdown();
+      $animalsForCheckboxes = Animal::getAnimalsForCheckboxes();
+
+      # Create a simple array of just the tag names for tags associated with this book;
+      # will be used in the view to decide which tags should be checked off
+      $animalsForThisTask = [];
+      foreach($newTask->animals as $animal) {
+          $animalsForThisTask[] = $animal->name;
+      }
+
 
       return view('tasks.create')->with([
           'newTask'=> $newTask,
           'locationsForDropdown' => $locationsForDropdown,
+          'animalsForCheckboxes' => $animalsForCheckboxes,
+          'animalsForThisTask' => $animalsForThisTask,
       ]);
     }
 
@@ -53,27 +67,52 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
+
        //Validate the form
 	  $this->validate($request,[
       'title'=> 'required',
       'priority'=> 'required',
-	  'cow_id'=> 'required',
-	  'start_date'=> 'required',
-	  'due_date'=> 'required',
-	  'complete_percent'=> 'required',
-      ]);
+  	  'start_date'=> 'required',
+  	  'due_date'=> 'required',
+  	  'complete_percent'=> 'required',
+        ]);
 
 	    //Store the data
 		  $newTask = new Task;
 		  $newTask->title = $request->get('title');
 		  $newTask->priority = $request->get('priority');
-          $newTask->cow_id = $request->get('cow_id');
 		  $newTask->start_date =$request->get('start_date');
 		  $newTask->due_date =$request->get('due_date');
 		  $newTask->complete_percent =$request->get('complete_percent');
       $newTask->location_id =$request->location_id;
 		  $newTask->notes =$request->get('notes');
+      $last_insert_id= DB::table('tasks')->order_by('upload_time', 'desc')->first();
+      dd($last_insert_id);
 
+
+
+
+
+
+
+      $locationsForDropdown = Location::locationsForDropdown();
+      $animalsForCheckboxes = Animal::getAnimalsForCheckboxes();
+
+      # Create a simple array of just the tag names for tags associated with this book;
+      # will be used in the view to decide which tags should be checked off
+      $animalsForThisTask = [];
+      foreach($newTask->animals as $animal) {
+          $animalsForThisTask[] = $animal->name;
+      }
+      if($request->animals) {
+          $animals = $request->animals;
+      }
+      # If there were no animals selected (i.e. no tags in the request)
+      # default to an empty array of tags
+      else {
+          $animals = [];
+      }
+      #dd($request->all());
 		  $today = date("Y-m-d");
 		  if($newTask->complete_percent=='100' && $today<$newTask->due_date)
 		  {
@@ -91,7 +130,7 @@ class TaskController extends Controller
 			    $newTask->status='Not completed';
 		        $newTask->done_overdue='Yes';
 		  }
-
+      $newTask->animals()->sync($animals);
 		  $newTask->save();
 
 
@@ -140,9 +179,9 @@ class TaskController extends Controller
 
     # Create a simple array of just the tag names for tags associated with this book;
     # will be used in the view to decide which tags should be checked off
-    $animalsForThisBook = [];
+    $animalsForThisTask = [];
     foreach($task->animals as $animal) {
-        $animalsForThisBook[] = $animal->name;
+        $animalsForThisTask[] = $animal->name;
     }
 
 		//return the view and pass the variable previously created
@@ -150,7 +189,7 @@ class TaskController extends Controller
         'task' => $task,
         'locationsForDropdown' => $locationsForDropdown,
         'animalsForCheckboxes' => $animalsForCheckboxes,
-        'animalsForThisBook' => $animalsForThisBook,
+        'animalsForThisTask' => $animalsForThisTask,
     ]);
     }
 
@@ -182,6 +221,7 @@ class TaskController extends Controller
 		  $newTask->complete_percent =$request->get('complete_percent');
 		  $newTask->notes =$request->get('notes');
       $newTask->location_id =$request->location_id;
+
       # If there were tags selected...
       if($request->animals) {
           $animals = $request->animals;

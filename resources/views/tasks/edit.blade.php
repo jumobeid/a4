@@ -47,7 +47,7 @@
                 value='{{ $id }}'
                 name='animals[]'
                 class='checkbox-success '
-                {{ (in_array($name, $animalsForThisBook)) ? 'CHECKED' : '' }}
+                {{ (in_array($name, $animalsForThisTask)) ? 'CHECKED' : '' }}
             >
             {{ $name }} <br>
         @endforeach

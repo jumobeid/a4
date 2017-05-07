@@ -38,9 +38,20 @@
 
 			</div>
 
-			<div class="form-group">
-			{!!Form::label('cow_id','applied on:')!!}
-			{!!Form::text('cow_id','',['class'=>'form-control'])!!}
+      <div class="form-group">
+			{!!Form::label('animal_id','applied on:')!!}</br>
+      <ul>
+        @foreach($animalsForCheckboxes as $id => $name)
+            <input
+                type='checkbox'
+                value='{{ $id }}'
+                name='animals[]'
+                class='checkbox-success '
+                {{ (in_array($name, $animalsForThisTask)) ? 'CHECKED' : '' }}
+            >
+            {{ $name }} <br>
+        @endforeach
+       </ul>
 			</div>
 
 			<div class="form-group">

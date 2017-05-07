@@ -8,7 +8,7 @@ class Animal extends Model
 {
     public function tasks()
     {
-        return $this->belongsToMany('App\Task');
+        return $this->belongsToMany('App\Task','animal_task','animal_id','task_id');
 
     }
 
