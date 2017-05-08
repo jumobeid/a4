@@ -16,10 +16,10 @@ class CreateAnimalTaskTable extends Migration
       Schema::create('animal_task', function (Blueprint $table) {
         $table->increments('id');
         $table->integer('task_id')->unsigned();
-        $table->foreign('task_id')->references('id')->on('tasks');
+        $table->foreign('task_id')->references('id')->on('tasks')->onDelete('cascade')->onUpdate('cascade');
 
         $table->integer('animal_id')->unsigned()->nullable();
-        $table->foreign('animal_id')->references('id')->on('animals');
+        $table->foreign('animal_id')->references('id')->on('animals')->onDelete('cascade')->onUpdate('cascade');
       });
     }
 
