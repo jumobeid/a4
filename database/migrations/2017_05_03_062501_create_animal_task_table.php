@@ -18,7 +18,7 @@ class CreateAnimalTaskTable extends Migration
         $table->integer('task_id')->unsigned();
         $table->foreign('task_id')->references('id')->on('tasks');
 
-        $table->integer('animal_id')->unsigned();
+        $table->integer('animal_id')->unsigned()->nullable();
         $table->foreign('animal_id')->references('id')->on('animals');
       });
     }

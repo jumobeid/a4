@@ -86,12 +86,6 @@ class TaskController extends Controller
 		  $newTask->complete_percent =$request->get('complete_percent');
       $newTask->location_id =$request->location_id;
 		  $newTask->notes =$request->get('notes');
-      $last_insert_id= DB::table('tasks')->order_by('upload_time', 'desc')->first();
-      dd($last_insert_id);
-
-
-
-
 
 
 
@@ -103,6 +97,7 @@ class TaskController extends Controller
       $animalsForThisTask = [];
       foreach($newTask->animals as $animal) {
           $animalsForThisTask[] = $animal->name;
+          $animalsidsForThisTask[]=$animal->id;
       }
       if($request->animals) {
           $animals = $request->animals;
@@ -112,7 +107,7 @@ class TaskController extends Controller
       else {
           $animals = [];
       }
-      #dd($request->all());
+      
 		  $today = date("Y-m-d");
 		  if($newTask->complete_percent=='100' && $today<$newTask->due_date)
 		  {
@@ -130,10 +125,11 @@ class TaskController extends Controller
 			    $newTask->status='Not completed';
 		        $newTask->done_overdue='Yes';
 		  }
-      $newTask->animals()->sync($animals);
+
+
 		  $newTask->save();
-
-
+      $newTask->animals()->sync($animals,false);
+      $newTask->save();
 		  Session::flash('success', 'The task was successfully saved!');
 
 

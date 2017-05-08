@@ -13,7 +13,7 @@ class Task extends Model
 
     public function animals()
     {
-      return $this->belongsToMany('App\Animal');
+      return $this->belongsToMany('App\Animal','animal_task','animal_id','task_id');
 
     }
 }

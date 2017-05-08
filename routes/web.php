@@ -21,7 +21,7 @@ Route::get('/help', 'PagesController@index');
 //Route::get('/submitted', 'cmsController@show');
 //Route::post('/submitted', 'cmsController@submitted');
 
-
+Route::resource('animals','AnimalController');
 if(config('app.env') == 'local') {
     #Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 }
