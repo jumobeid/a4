@@ -87,8 +87,35 @@
 	  </div>
 
 	</div>
-	
 
+  <hr>
+
+  <div class="row">
+     <div class="col-md-10 col-md-offset-1">
+    <div class="col-md-6 ">
+     <p>Add new animal</p>
+    </div>
+    <div class="col-md-2">
+    <img src="/images/addNewCow.png" title="add new cow" alt="add new cow" width="27" height="27" border="0">
+    </div>
+
+    </div>
+
+  </div>
+
+  <hr>
+  <div class="row">
+     <div class="col-md-10 col-md-offset-1">
+    <div class="col-md-6 ">
+     <p>Add new location</p>
+    </div>
+    <div class="col-md-2">
+    <img src="/images/addLocation.png" title="add new location" alt="add new location" width="27" height="27" border="0">
+    </div>
+
+    </div>
+
+  </div>
 
 
 

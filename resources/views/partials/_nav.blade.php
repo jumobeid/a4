@@ -6,7 +6,7 @@
 			  <li><a href="/tasks"><img src="/images/getReport.png" title="get report" alt="get report" width="27" height="27" border="0"></a></li>
 			  <li><a href="#"><img src="/images/getReport2.png" title="get pasture report" alt="get pasture report" width="27" height="27" border="0"></a></li>
 			  <li><a href="#"><img src="/images/familyTree.png" title="get family tree" alt="get family tree" width="27" height="27" border="0"></a></li>
-			  <li><a href="#"><img src="/images/registerBirth.png" title="register birth" alt="register birth" width="27" height="27" border="0"></a></li>
+			  <li><a href="#"><img src="/images/addLocation.png" title="add location" alt="add location" width="27" height="27" border="0"></a></li>
 			  <li><a href="#"><img src="/images/weather.png" title="weather" alt="weather" width="27" height="27" border="0"></a></li>
 			  <li><a href="#"><img src="/images/sellCow.png" title="sell cow" alt="sell cow" width="27" height="27" border="0"></a></li>
 			  <li><a href="#"><img src="/images/workers.png" title="workers" alt="workers" width="27" height="27" border="0"></a></li>
