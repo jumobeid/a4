@@ -117,6 +117,20 @@
 
   </div>
 
+  <hr>
+  <div class="row">
+     <div class="col-md-10 col-md-offset-1">
+    <div class="col-md-6 ">
+     <p>Get all animals</p>
+    </div>
+    <div class="col-md-2">
+    <img src="/images/getReport2.png" title="get all animals" alt="git all animals" width="27" height="27" border="0">
+    </div>
+
+    </div>
+
+  </div>
+
 
 
 

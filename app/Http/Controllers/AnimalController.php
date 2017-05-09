@@ -68,7 +68,10 @@ class AnimalController extends Controller
      */
     public function show($id)
     {
-        //
+        $animal = Animal::find($id);
+        return view ('animals.show')->with([
+          'animal'=>$animal,
+        ]);
     }
 
     /**
@@ -79,7 +82,9 @@ class AnimalController extends Controller
      */
     public function edit($id)
     {
-        //
+        $animal = Animal::find($id);
+        return view ('animals.edit', compact('animal'));
+
     }
 
     /**
@@ -91,7 +96,19 @@ class AnimalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $animal = Animal::find($id);
+        $this->validate($request,[
+          'name'=>'required',
+          'gender'=>'required'
+        ]);
+
+      $animal->name =$request->get('name');
+      $animal->gender = $request->get('gender');
+
+      $animal->save();
+      Session::flash('success', 'The changes were successfully saved!');
+
+      return redirect()->route('animals.show',$animal->id);
     }
 
     /**
@@ -102,6 +119,13 @@ class AnimalController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $animal = Animal::find($id);
+      $animal->tasks()->detach();
+
+      $animal->delete();
+
+      Session::flash('success', 'The animal record was successfully deleted!');
+
+      return redirect()->route('animals.index');
     }
 }

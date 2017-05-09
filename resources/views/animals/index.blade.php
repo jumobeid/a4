@@ -28,7 +28,7 @@
       <tr>
        <td>{{$animal->name}}</td>
        <td>{{$animal->gender}}</td>
-       <td><s><a href="{{route('animals.show',$animal->id)}}" class="btn btn-default btn-sm">View related tasks</a><a href="{{route('animals.edit',$animal->id)}}" class="btn btn-default btn-sm">Edit</a></td>
+       <td><s><a href="{{route('animals.show',$animal->id)}}" class="btn btn-default btn-sm">View related tasks</a></td>
       </tr>
 			@endforeach
 		</tbody>
