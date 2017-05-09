@@ -107,7 +107,7 @@ class TaskController extends Controller
       else {
           $animals = [];
       }
-      
+
 		  $today = date("Y-m-d");
 		  if($newTask->complete_percent=='100' && $today<$newTask->due_date)
 		  {
@@ -287,7 +287,7 @@ class TaskController extends Controller
      	//delete the post
      	$task->delete();
 
-     	Session::flash('success','The post was sucseesfully deleted');
+     	Session::flash('success','The task was succeessfully deleted');
 
      	//redirect to index page
      	return redirect()->route('tasks.index');
