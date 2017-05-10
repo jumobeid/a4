@@ -30,7 +30,7 @@ class LocationController extends Controller
      */
     public function create()
     {
-        //create a new Location
+
         $newLocation = new Location;
 
 
@@ -70,7 +70,7 @@ class LocationController extends Controller
         return redirect()->route('locations.index');
 
 
-        //redirect to index
+
 
     }
 

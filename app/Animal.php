@@ -12,7 +12,7 @@ class Animal extends Model
 
     }
 
-    # app/Tag.php
+    
     public static function getAnimalsForCheckboxes() {
 
         $animals = Animal::orderBy('name','ASC')->get();

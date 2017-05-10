@@ -15,8 +15,9 @@ class AnimalController extends Controller
      */
     public function index()
     {
-        //get all animals
+
         $animals =Animal::all();
+
         return view('animals.index')->with([
           'animals'=>$animals,
         ]);
@@ -24,12 +25,6 @@ class AnimalController extends Controller
 
     public function create(){
       $newAnimal = new Animal;
-
-
-      # Create a simple array of just the tag names for tags associated with this book;
-      # will be used in the view to decide which tags should be checked off
-
-
 
       return view('animals.create')->with([
           'newAnimal'=> $newAnimal,
