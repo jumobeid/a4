@@ -27,6 +27,7 @@
 		</thead>
 		<tbody>
 			@foreach ($locations as $location)
+        @if($location->name!=null)
       <tr>
        <td>{{$location->name}}</td>
        <td>{{$location->description}}</td>
@@ -35,6 +36,7 @@
        <td>{{$location->owner}}</td>
        <td><s><a href="{{route('locations.show',$location->id)}}" class="btn btn-default btn-sm">View related tasks</a></td>
       </tr>
+        @endif
 			@endforeach
 		</tbody>
 		</table>

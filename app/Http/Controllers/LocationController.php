@@ -52,8 +52,8 @@ class LocationController extends Controller
         $this->validate($request,[
         'name'=> 'required',
         'description'=> 'required',
-        'number_of_workers'=> 'required|min:1',
-        'number_of_animals'=> 'required|min:1',
+        'number_of_workers'=> 'required|integer|min:1',
+        'number_of_animals'=> 'required|integer|min:1',
         'owner'=>'required',
         ]);
         $location = new Location;
@@ -112,8 +112,8 @@ class LocationController extends Controller
       $this->validate($request,[
       'name'=> 'required',
       'description'=> 'required',
-      'number_of_workers'=> 'required|min:1',
-      'number_of_animals'=> 'required|min:1',
+      'number_of_workers'=> 'required|integer|min:1',
+      'number_of_animals'=> 'required|integer|min:1',
       'owner'=>'required',
       ]);
       $location = new Location;
@@ -136,5 +136,5 @@ class LocationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-  
+
 }
