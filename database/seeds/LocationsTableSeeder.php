@@ -12,6 +12,15 @@ class LocationsTableSeeder extends Seeder
      */
     public function run()
     {
+      Location::insert([
+          'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+          'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+          'name' => '',
+          'description' => '',
+          'number_of_workers' => 0,
+          'number_of_animals' => 0,
+          'owner' => '',
+      ]);
     Location::insert([
         'created_at' => Carbon\Carbon::now()->toDateTimeString(),
         'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
