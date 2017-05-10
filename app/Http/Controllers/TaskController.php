@@ -150,6 +150,11 @@ class TaskController extends Controller
 
 		$newTask=Task::find($id);
 
+    $locationsForDropdown = Location::locationsForDropdown();
+
+
+
+
 		return view('tasks.show')->with('newTask',$newTask);
     }
 
@@ -170,6 +175,8 @@ class TaskController extends Controller
        }
 
     $locationsForDropdown = Location::locationsForDropdown();
+
+
     # Get all the possible tags so we can include them with checkboxes in the view
     $animalsForCheckboxes = Animal::getAnimalsForCheckboxes();
 
@@ -277,19 +284,15 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-      //find the task
-      $task = Task::find($id);
+     public function destroy($id)
+     {
+       $task = Task::find($id);
+       $task->animals()->detach();
 
-      $task->animals()->detach();
+       $location->delete();
 
-     	//delete the post
-     	$task->delete();
+       Session::flash('success', 'The task record was successfully deleted!');
 
-     	Session::flash('success','The task was succeessfully deleted');
-
-     	//redirect to index page
-     	return redirect()->route('tasks.index');
-    }
+       return redirect()->route('tasks.index');
+     }
 }

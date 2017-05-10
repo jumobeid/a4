@@ -5,8 +5,9 @@
 			  <li class="active"><a href="/animals/create"><img src="/images/addNewCow.png" title="add new cow" alt="add new" width="27" height="27" border="0"></a></li>
 			  <li><a href="/tasks"><img src="/images/getReport.png" title="get report" alt="get report" width="27" height="27" border="0"></a></li>
 			  <li><a href="/animals"><img src="/images/getReport2.png" title="get pasture report" alt="get pasture report" width="27" height="27" border="0"></a></li>
+				<li><a href="/locations"><img src="/images/getReport3.png" title="get location report" alt="get location report" width="27" height="27" border="0"></a></li>
 			  <li><a href="#"><img src="/images/familyTree.png" title="get family tree" alt="get family tree" width="27" height="27" border="0"></a></li>
-			  <li><a href="#"><img src="/images/addLocation.png" title="add location" alt="add location" width="27" height="27" border="0"></a></li>
+			  <li><a href="/locations/create"><img src="/images/addLocation.png" title="add location" alt="add location" width="27" height="27" border="0"></a></li>
 			  <li><a href="#"><img src="/images/weather.png" title="weather" alt="weather" width="27" height="27" border="0"></a></li>
 			  <li><a href="#"><img src="/images/sellCow.png" title="sell cow" alt="sell cow" width="27" height="27" border="0"></a></li>
 			  <li><a href="#"><img src="/images/workers.png" title="workers" alt="workers" width="27" height="27" border="0"></a></li>

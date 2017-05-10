@@ -24,38 +24,7 @@
 			</div>
 
 			<div class="col-md-4">
-			<div class="panel panel-default">
-				<div class="panel-body">
-			  <table class="table table-striped">
-				<tbody>
-				   <tr>
-				    <th>Pasture:</th>
-						<td>Al Moroj</td>
-				   </tr>
-				   <tr>
-					<th>Herd:</th>
-						<td>My Local Herd</td>
-				   </tr>
-				   <tr>
-					<th>Number of Animals:</th>
-						<td>58</td>
-				   </tr>
-				   <tr>
-					<th>Total No of Coworkers:</th>
-						<td>4</td>
-				   </tr>
-				   <tr>
-					<th>Owner:</th>
-						<td>Sead Salem</td>
-				   </tr>
-				   <tr>
-					<th>Location:</th>
-						<td>Al Ain</td>
-				   </tr>
-				</tbody>
-			  </table>
-			</div>
-			</div>
+			  @include('partials._calender')
 			</div>
 		</div>
     </header>

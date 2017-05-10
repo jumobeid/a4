@@ -20,10 +20,10 @@ class ConnectLocationsAndTasksTables extends Migration
     # $table->dropColumn('author');
 
   # Add a new INT field called `author_id` that has to be unsigned (i.e. positive)
-    $table->integer('location_id')->unsigned();
+    $table->integer('location_id')->unsigned()->nullable();
 
   # This field `author_id` is a foreign key that connects to the `id` field in the `authors` table
-    $table->foreign('location_id')->references('id')->on('locations');
+    $table->foreign('location_id')->references('id')->on('locations')->onDelete('cascade')->onUpdate('cascade');
 
   });
   }

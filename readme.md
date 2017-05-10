@@ -10,3 +10,6 @@ http://laraveldaily.com/all-about-redirects-in-laravel-5/
 
 #About model binding
 https://www.youtube.com/watch?v=EJwxG3b9j9c
+
+#calender
+<!--- See more at: http://www.codemiles.com/javascript-examples/simple-javascript-calendar-t7767.html#sthash.6eE9qtWs.dpuf-->
