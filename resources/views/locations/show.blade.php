@@ -37,7 +37,7 @@
     </div>
     @if($location->name!=null)
     <div class="well col-md-4 col-md-offset-1">
-      <div class="col-md-2 col-md-offset-4">
+      <div class="col-md-3 col-md-offset-2">
 
       {!!Html::linkRoute('locations.edit','Edit',array($location->id),array('class'=>'btn btn-success btn-block'))!!}
       @endif
