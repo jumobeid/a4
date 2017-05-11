@@ -289,7 +289,7 @@ class TaskController extends Controller
        $task = Task::find($id);
        $task->animals()->detach();
 
-       $location->delete();
+       $task->delete();
 
        Session::flash('success', 'The task record was successfully deleted!');
 
