@@ -7,6 +7,7 @@
     <meta charset='utf-8'>
     <link href="/css/cms.css" type='text/css' rel='stylesheet'>
     <link href="/js/calender.js" type='text/css' rel='stylesheet'>
+    <link href="/css/foobooks.css" type='text/css' rel='stylesheet'>
 	 <!-- Latest compiled and minified CSS -->
 	 <!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
