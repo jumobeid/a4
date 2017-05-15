@@ -112,11 +112,12 @@ class LocationController extends Controller
       $this->validate($request,[
       'name'=> 'required',
       'description'=> 'required',
-      'number_of_workers'=> 'required|integer|min:1',
-      'number_of_animals'=> 'required|integer|min:1',
+      'number_of_workers'=> 'required|integer|between:1,150',
+      'number_of_animals'=> 'required|integer|between:1,500',
       'owner'=>'required',
       ]);
-      $location = new Location;
+      $location = Location::find($id);
+
       $location->name=$request->get('name');
       $location->description=$request->get('description');
       $location->number_of_workers=$request->get('number_of_workers');
@@ -131,7 +132,7 @@ class LocationController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     *
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

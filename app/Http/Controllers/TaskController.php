@@ -43,8 +43,7 @@ class TaskController extends Controller
       $locationsForDropdown = Location::locationsForDropdown();
       $animalsForCheckboxes = Animal::getAnimalsForCheckboxes();
 
-      # Create a simple array of just the tag names for tags associated with this book;
-      # will be used in the view to decide which tags should be checked off
+
       $animalsForThisTask = [];
       foreach($newTask->animals as $animal) {
           $animalsForThisTask[] = $animal->name;
@@ -89,11 +88,11 @@ class TaskController extends Controller
 
 
 
+
       $locationsForDropdown = Location::locationsForDropdown();
       $animalsForCheckboxes = Animal::getAnimalsForCheckboxes();
 
-      # Create a simple array of just the tag names for tags associated with this book;
-      # will be used in the view to decide which tags should be checked off
+
       $animalsForThisTask = [];
       foreach($newTask->animals as $animal) {
           $animalsForThisTask[] = $animal->name;
@@ -102,8 +101,7 @@ class TaskController extends Controller
       if($request->animals) {
           $animals = $request->animals;
       }
-      # If there were no animals selected (i.e. no tags in the request)
-      # default to an empty array of tags
+
       else {
           $animals = [];
       }
@@ -126,6 +124,15 @@ class TaskController extends Controller
 		        $newTask->done_overdue='Yes';
 		  }
 
+      if ($newTask->start_date > $newTask->due_date)
+      {
+        //dd('fail');
+        Session::flash('fail', 'Start date should be less than end date!');
+
+        return redirect()->route('tasks.create');
+
+      }else{
+
 
 		  $newTask->save();
       $newTask->animals()->sync($animals,false);
@@ -135,7 +142,7 @@ class TaskController extends Controller
 
 		//redirect
 		return redirect()->route('tasks.show',$newTask->id);
-
+      }
     }
 
     /**
@@ -177,17 +184,16 @@ class TaskController extends Controller
     $locationsForDropdown = Location::locationsForDropdown();
 
 
-    # Get all the possible tags so we can include them with checkboxes in the view
+
     $animalsForCheckboxes = Animal::getAnimalsForCheckboxes();
 
-    # Create a simple array of just the tag names for tags associated with this book;
-    # will be used in the view to decide which tags should be checked off
+
     $animalsForThisTask = [];
     foreach($task->animals as $animal) {
         $animalsForThisTask[] = $animal->name;
     }
 
-		//return the view and pass the variable previously created
+
 		return view('tasks.edit')->with([
         'task' => $task,
         'locationsForDropdown' => $locationsForDropdown,
@@ -225,12 +231,11 @@ class TaskController extends Controller
 		  $newTask->notes =$request->get('notes');
       $newTask->location_id =$request->location_id;
 
-      # If there were tags selected...
+
       if($request->animals) {
           $animals = $request->animals;
       }
-      # If there were no animals selected (i.e. no tags in the request)
-      # default to an empty array of tags
+
       else {
           $animals = [];
       }
@@ -268,14 +273,21 @@ class TaskController extends Controller
 		        $newTask->done_overdue='Yes';
 		    }
 
+        if ($newTask->start_date > $newTask->due_date)
+        {
+          //dd('fail');
+          Session::flash('fail', 'Start date should be less than end date!');
 
+          return redirect()->route('tasks.edit',$newTask->id);
+
+        }else{
 
 			$newTask->save();
 		    Session::flash('success', 'The changes were successfully saved!');
-			//redirect
+
 			return redirect()->route('tasks.show',$newTask->id);
           }
-
+        }  
     }
 
     /**
